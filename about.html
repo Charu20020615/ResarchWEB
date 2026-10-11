@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us · VisionWaste</title>
-  <meta name="description" content="Research team for VisionWaste R26-IT-084. Names and roles are limited to what the repository records.">
+  <title>Team · VisionWaste</title>
+  <meta name="description" content="The four SLIIT researchers behind VisionWaste (R26-IT-084) and the component each one builds.">
   <meta name="theme-color" content="#050B16">
-  <meta property="og:title" content="About Us · VisionWaste">
-  <meta property="og:description" content="Team members recorded for VisionWaste, SLIIT Faculty of Computing.">
+  <meta property="og:title" content="Team · VisionWaste">
+  <meta property="og:description" content="The four SLIIT researchers behind VisionWaste (R26-IT-084) and the component each one builds.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,27 +30,19 @@
       <label class="nav-burger" for="nav-toggle"><span class="nav-burger__bars" aria-hidden="true"></span><span class="sr-only">Open menu</span></label>
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="about.html" aria-current="page">Team</a></li>
           <li><a href="domain.html">Domain</a></li>
-          <li class="has-menu">
-            <a href="milestones.html">Milestones</a>
-            <ul class="submenu">
-              <li><a href="milestones.html#proposal">Project Proposal</a></li>
-              <li><a href="milestones.html#progress-1">Progress Presentation 1</a></li>
-              <li><a href="milestones.html#progress-2">Progress Presentation 2</a></li>
-              <li><a href="milestones.html#final">Final Assessment</a></li>
-              <li><a href="milestones.html#viva">Viva</a></li>
-            </ul>
-          </li>
+          <li><a href="milestones.html">Milestones</a></li>
           <li><a href="documents.html">Documents</a></li>
           <li><a href="slides.html">Slides</a></li>
-          <li><a href="about.html" aria-current="page">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li class="nav-contact"><a href="contact.html">Contact us</a></li>
         </ul>
       </nav>
       <a class="header-search" href="search.html" aria-label="Search this website">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
       </a>
+      <a class="btn btn--primary header-cta" href="contact.html">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </header>
 
@@ -63,58 +55,65 @@
         <div class="bg-shade"></div>
       </div>
       <div class="container">
-        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">About Us</li></ol></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Team</li></ol></nav>
         <p class="eyebrow">Team</p>
-        <h1>About the research group</h1>
-        <p>The group is building VisionWaste so irregular public-bin waste is easier to see, explain, and act on: fill level, animals, waste type, litter, alerts, and a nearby bin for citizens. Photographs were not supplied. Student IDs and roles appear only where the repository records them.</p>
+        <h1>The research group</h1>
+        <p>VisionWaste is built by four Faculty of Computing students at SLIIT (group R26-IT-084). Each member owns one novelty, and together they make irregular public-bin waste easier to see, explain, and act on.</p>
       </div>
     </header>
 
     <section class="section section--tight">
       <div class="container">
-        <p class="note"><strong>Confirm before publication.</strong> Names come from Git author records. One display name is assembled from an email address. Supervisor and co-supervisor names are not in the repository.</p>
-        <div class="team-grid gap-top">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Research team</p>
+            <h2>Built by SLIIT final year researchers</h2>
+          </div>
+          <p>Four components, one system: the bin interior, its surroundings, and the collection schedule.</p>
+        </div>
+        <div class="team-grid">
           <article class="person">
-            <div class="avatar" aria-hidden="true">CE</div>
+            <div class="avatar" aria-hidden="true">RK</div>
             <div>
-              <h2>Charuka Edirisinghe</h2>
-              <p>IT22200006</p>
-              <p>Bin-fill detection with YOLOv8n, ESP32-CAM capture, and the Flutter mobile application. The Garbage_Fill_Level dataset is attributed to C. Edirisinghe.</p>
+              <p class="role">Member 1 · IT22194312</p>
+              <h2>Ranaweera K U I</h2>
+              <p><strong>Vision-based hygienic risk assessment and species-aware animal deterrent.</strong> A Teachable Machine binary classifier separates organic from non-organic waste. Organic content, temperature, and time combine into a hygienic risk score. A second classifier recognises stray dogs, cats, and cattle, and a graduated, species-specific ultrasonic deterrent (18–25 kHz) runs only when risk is high, so animals do not habituate and scatter the waste.</p>
+              <p><a href="mailto:ranaweeraimashi880@gmail.com">ranaweeraimashi880@gmail.com</a></p>
+            </div>
+          </article>
+          <article class="person">
+            <div class="avatar" aria-hidden="true">EE</div>
+            <div>
+              <p class="role">Member 2 · IT22200006</p>
+              <h2>Edirisinghe E A</h2>
+              <p><strong>Motion-triggered camera-based fill level detection.</strong> A PIR motion sensor triggers image capture, and a TFLite edge model trained on 500+ augmented images across several fill levels classifies the result. This removes the need for continuous ultrasonic sensing, cutting power use and data volume while giving finer-grained fill insight.</p>
               <p><a href="mailto:charukasedirisinghe@gmail.com">charukasedirisinghe@gmail.com</a></p>
             </div>
           </article>
           <article class="person">
-            <div class="avatar" aria-hidden="true">AH</div>
+            <div class="avatar" aria-hidden="true">HH</div>
             <div>
-              <h2>Adheeshana Herath</h2>
-              <p>IT22296214</p>
-              <p>Municipal waste-quantity forecasting with the XGBoost pipeline used by the forecast service.</p>
+              <p class="role">Member 3 · IT22296214</p>
+              <h2>Herath H M A M</h2>
+              <p><strong>Event-aware waste demand forecasting.</strong> A spatio-temporal model combines calendar events (Poya days, school terms, Fridays) with location profiles (temples, schools) to predict waste spikes. A decision-support interface turns the forecast into advance alerts, so municipalities can adjust schedules or place temporary bins instead of following static routes.</p>
               <p><a href="mailto:it22296214@my.sliit.lk">it22296214@my.sliit.lk</a></p>
             </div>
           </article>
           <article class="person">
-            <div class="avatar" aria-hidden="true">JR</div>
+            <div class="avatar" aria-hidden="true">RM</div>
             <div>
-              <h2>Janindu Nethmin Ranasinghe</h2>
-              <p>Student ID not recorded</p>
-              <p>Repository contributor. A specific module assignment is not written down in the materials used here.</p>
+              <p class="role">Member 4 · IT22262318</p>
+              <h2>Ranasinghe M J N</h2>
+              <p><strong>Motion-triggered improper disposal and litter severity detection.</strong> Existing systems ignore the area outside the bin. A Teachable Machine image classifier, trained on clean, moderate, and severe litter, identifies and quantifies improper disposal in the zones around the bin.</p>
               <p><a href="mailto:janinethminaa2002@gmail.com">janinethminaa2002@gmail.com</a></p>
-            </div>
-          </article>
-          <article class="person">
-            <div class="avatar" aria-hidden="true">IR</div>
-            <div>
-              <h2>Imashi Ranaweera</h2>
-              <p>Student ID not recorded</p>
-              <p>Repository author imashi2001. The display name is assembled from ranaweeraimashi880@gmail.com and should be confirmed. The 30 August 2026 evaluation report was generated on a machine path under that name.</p>
-              <p><a href="mailto:ranaweeraimashi880@gmail.com">ranaweeraimashi880@gmail.com</a></p>
             </div>
           </article>
         </div>
 
         <article class="panel gap-top">
-          <h2>Supervisor</h2>
-          <p>Supervisor name, designation, and email are not recorded in the project repository. Add the approved details here before the site is published.</p>
+          <p class="eyebrow">Supervision</p>
+          <h2>Supervisor and co-supervisor</h2>
+          <p>Names and designations have not been supplied yet. Add the approved details here before the site is published.</p>
         </article>
       </div>
     </section>
@@ -127,34 +126,34 @@
           <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
         </a>
-        <p>Vision-based hygienic risk prediction and animal deterrence. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
+        <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
       </div>
       <nav aria-label="Footer">
-        <p class="footer-label">Sections</p>
+        <p class="footer-label">Explore</p>
         <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="about.html">Team</a></li>
           <li><a href="domain.html">Domain</a></li>
           <li><a href="milestones.html">Milestones</a></li>
-          <li><a href="documents.html">Documents</a></li>
-          <li><a href="slides.html">Slides</a></li>
         </ul>
       </nav>
       <div>
-        <p class="footer-label">Project</p>
+        <p class="footer-label">Resources</p>
         <ul>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="slides.html">Slides</a></li>
           <li><a href="search.html">Search</a></li>
           <li><a href="documents/visionwaste-system-overview.pdf">System overview</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-label">Contact</p>
-        <p>No shared project phone number or inbox is recorded. Use a team address on the contact page.</p>
+        <p>No shared project inbox is recorded. Email a team member directly.</p>
         <p><a href="contact.html">Go to contact</a></p>
       </div>
     </div>
     <div class="container footer-base">
-      <p>R26-IT-084 · VisionWaste</p>
+      <p>R26-IT-084 · VisionWaste · Final year research 2026</p>
       <p>Sri Lanka Institute of Information Technology</p>
     </div>
   </footer>

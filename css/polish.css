@@ -181,3 +181,78 @@ input:focus, select:focus, textarea:focus {
   .hero h1, .hero h1 span, .stat b { -webkit-text-fill-color: currentColor; background: none; color: #000; }
   a { color: #000; }
 }
+
+/* ---------- Floating pill header ---------- */
+
+.site-header,
+.site-header.is-scrolled {
+  top: 0;
+  padding: 12px 0 0;
+  background: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.header-bar {
+  min-height: 60px;
+  padding: 0 10px 0 16px;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(8, 16, 30, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: background var(--ease), border-color var(--ease), box-shadow var(--ease);
+}
+
+.site-header.is-scrolled .header-bar {
+  background: rgba(8, 16, 30, 0.94);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.header-cta { min-height: 40px; padding: 0 16px; font-size: 0.9rem; flex: none; }
+.nav-contact { display: none; }
+
+@media (min-width: 921px) {
+  .header-cta { order: 4; margin-left: 4px; }
+  .site-nav a { padding: 8px 13px; }
+}
+
+@media (max-width: 920px) {
+  .header-cta { display: none; }
+  .nav-contact { display: block; }
+  .site-header { padding-top: 8px; }
+  .site-nav { top: calc(100% + 8px); left: 0; right: 0; }
+}
+
+/* ---------- Member labels ---------- */
+
+.role {
+  margin: 0 0 6px;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.person h2 { margin-bottom: 8px; }
+.person p strong, .panel p strong { color: var(--text); font-weight: 600; }
+.card .role { margin-bottom: 10px; }
+.panel .role { margin-bottom: 8px; }
+.stack .stack { gap: 16px; }
+.table-wrap td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+@media (max-width: 720px) { .table-wrap td:first-child { white-space: normal; } }
+
+/* Let hero backgrounds run behind the floating header (no seam) */
+.site-header { margin-bottom: -74px; }
+.hero { padding-top: 102px; }
+.page-hero { padding-top: 110px; }
+.skip-link { top: -80px; }
+@media (max-width: 920px) {
+  .site-header { margin-bottom: -70px; }
+  .hero { padding-top: 90px; }
+  .page-hero { padding-top: 98px; }
+}

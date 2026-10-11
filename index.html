@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home · VisionWaste</title>
-  <meta name="description" content="VisionWaste (R26-IT-084) is a vision-based hygienic risk and animal-deterrence system for public waste bins, developed at SLIIT Faculty of Computing.">
+  <title>VisionWaste · Overview</title>
+  <meta name="description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
   <meta name="theme-color" content="#050B16">
-  <meta property="og:title" content="VisionWaste · R26-IT-084">
-  <meta property="og:description" content="Vision-based hygienic risk prediction and animal deterrence for public waste bins.">
+  <meta property="og:title" content="VisionWaste · Overview">
+  <meta property="og:description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,27 +30,19 @@
       <label class="nav-burger" for="nav-toggle"><span class="nav-burger__bars" aria-hidden="true"></span><span class="sr-only">Open menu</span></label>
       <nav class="site-nav" aria-label="Primary">
         <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html" aria-current="page">Overview</a></li>
+          <li><a href="about.html">Team</a></li>
           <li><a href="domain.html">Domain</a></li>
-          <li class="has-menu">
-            <a href="milestones.html">Milestones</a>
-            <ul class="submenu">
-              <li><a href="milestones.html#proposal">Project Proposal</a></li>
-              <li><a href="milestones.html#progress-1">Progress Presentation 1</a></li>
-              <li><a href="milestones.html#progress-2">Progress Presentation 2</a></li>
-              <li><a href="milestones.html#final">Final Assessment</a></li>
-              <li><a href="milestones.html#viva">Viva</a></li>
-            </ul>
-          </li>
+          <li><a href="milestones.html">Milestones</a></li>
           <li><a href="documents.html">Documents</a></li>
           <li><a href="slides.html">Slides</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li class="nav-contact"><a href="contact.html">Contact us</a></li>
         </ul>
       </nav>
       <a class="header-search" href="search.html" aria-label="Search this website">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
       </a>
+      <a class="btn btn--primary header-cta" href="contact.html">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </header>
 
@@ -65,23 +57,24 @@
       </div>
       <div class="container hero-grid">
         <div>
-          <p class="badge"><i></i> Research project · R26-IT-084</p>
+          <p class="badge"><i></i> Final year research · 2026 · R26-IT-084</p>
+          <p class="eyebrow">Group research project</p>
           <h1>Vision<span>Waste</span></h1>
-          <p class="lede">Vision-based hygienic risk prediction and animal deterrence for public waste bins.</p>
-          <p class="abstract">VisionWaste watches public bins with cameras and phones. From one image it classifies waste, detects animals, estimates fill level, and can score litter outside the bin. A rule-based engine combines those signals with weather, then supports staff alerts, audio cues, forecasts, and collection planning. Citizens can look up a nearby bin.</p>
+          <p class="lede">Vision-based smart waste monitoring that sees what fill-level sensors miss.</p>
+          <p class="abstract">Irregular municipal waste collection inconveniences pedestrians, schoolchildren, healthcare workers, and local businesses. Existing smart bins only measure fill level. VisionWaste adds edge cameras, environmental sensing, and event-aware forecasting to assess hygiene risk, detect scattered litter, deter stray animals, and plan collections.</p>
           <div class="actions">
-            <a class="btn btn--primary" href="domain.html">Explore Research <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="btn btn--ghost" href="documents.html">View Documents</a>
+            <a class="btn btn--primary" href="domain.html">Explore the Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn--ghost" href="about.html">Meet the Team</a>
           </div>
           <ul class="hero-points">
             <li><strong>Group</strong> R26-IT-084 · SLIIT Faculty of Computing</li>
             <li><strong>Goal</strong> Avoid inconvenience from irregular waste</li>
-            <li><strong>Capture</strong> ESP32-CAM, phone, or admin upload</li>
-            <li><strong>Clients</strong> Web dashboard and Flutter Android app</li>
+            <li><strong>Edge devices</strong> Raspberry Pi or Jetson Nano</li>
+            <li><strong>Aligned with</strong> SDG 11, SDG 3, and SDG 13</li>
           </ul>
         </div>
         <figure class="hero-visual">
-          <svg class="scene" viewBox="160 40 300 460" role="img" aria-label="Public bin with an ESP32-CAM on a short mast, a recycling mark, and a speaker.">
+          <svg class="scene" viewBox="160 40 300 460" role="img" aria-label="Public bin with a camera on a short mast and a recycling mark.">
             <defs>
               <linearGradient id="bin" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#1a3148"/>
@@ -108,28 +101,28 @@
             <rect x="248" y="360" width="128" height="10" rx="5" fill="rgba(34,211,238,0.18)"/>
           </svg>
           <ul class="callouts">
-            <li class="callout callout--cam"><strong>ESP32-CAM</strong><span>JPEG capture on the bin</span></li>
-            <li class="callout callout--class"><strong>Image classification</strong><span>Waste, animals, and fill level</span></li>
-            <li class="callout callout--audio"><strong>Audio alerts</strong><span>Speaker cues for high and critical risk</span></li>
+            <li class="callout"><strong>Motion-triggered camera</strong><span>A PIR sensor wakes capture to save power</span></li>
+            <li class="callout"><strong>Edge classification</strong><span>Lightweight models run on the device</span></li>
+            <li class="callout"><strong>Species-aware deterrent</strong><span>18–25 kHz, only when risk is high</span></li>
           </ul>
         </figure>
       </div>
       <div class="container feature-row">
         <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 8h4l2-3h4l2 3h4v11H4z"/><circle cx="12" cy="13" r="3"/></svg>
-          <div><strong>Image capture</strong><span>ESP32-CAM, phone, or an admin upload.</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><strong>Hygienic risk and deterrent</strong><span>Organic content, heat, and time drive a risk score.</span></div>
         </article>
         <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M12 3v4M15 3v4M9 17v4M12 17v4M15 17v4M3 9h4M3 12h4M3 15h4M17 9h4M17 12h4M17 15h4"/></svg>
-          <div><strong>Separate model services</strong><span>Waste, animal, fill, litter, and littering action.</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 14h12M6 9h12"/></svg>
+          <div><strong>Fill level detection</strong><span>PIR-triggered capture replaces constant ultrasonic sensing.</span></div>
         </article>
         <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 10h3l5-4v12l-5-4H4z"/><path d="M16 9a4 4 0 010 6M18.5 7a7 7 0 010 10" stroke-linecap="round"/></svg>
-          <div><strong>Audio alerts</strong><span>DFPlayer tracks after high or critical risk.</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 15l4-5 3 3 4-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><strong>Event-aware forecasting</strong><span>Poya days and school terms predict waste spikes.</span></div>
         </article>
         <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2"/></svg>
-          <div><strong>Maps and routes</strong><span>Nearest bin for citizens and collection stops for staff.</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 20h18M6 20l2-8h8l2 8"/><path d="M10 8l2-4 2 4"/></svg>
+          <div><strong>Litter severity</strong><span>Clean, moderate, or severe litter around the bin.</span></div>
         </article>
       </div>
     </section>
@@ -138,16 +131,16 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Documented evaluation</p>
-            <h2>Results already on record</h2>
+            <p class="eyebrow">Key figures</p>
+            <h2>Why it matters</h2>
           </div>
-          <p>These figures come from project evaluation files. They are not live dashboard statistics. Litter weights were missing in the 30 August 2026 run, so no litter score is shown.</p>
+          <p>Figures come from the project problem statement and component designs. They are not live dashboard statistics.</p>
         </div>
         <div class="stat-grid">
-          <article class="stat"><b>97.58%</b><em>Waste test accuracy</em><span>MobileNetV2 · 372 test images · 30 Aug 2026</span></article>
-          <article class="stat"><b>0.881</b><em>Animal mAP@0.5</em><span>YOLOv8 test set · cat, crow, dog, monkey</span></article>
-          <article class="stat"><b>0.861</b><em>Fill mAP@0.5</em><span>YOLOv8n validation, epoch 32 · 23 images</span></article>
-          <article class="stat"><b>6/6</b><em>Risk-rule scenarios</em><span>Scripted checks of the rule engine</span></article>
+          <article class="stat"><b>15–30%</b><em>Foot traffic lost</em><span>Nearby businesses affected by uncollected waste</span></article>
+          <article class="stat"><b>500+</b><em>Augmented images</em><span>Training set for fill level detection</span></article>
+          <article class="stat"><b>18–25 kHz</b><em>Deterrent band</em><span>Species-specific ultrasonic output</span></article>
+          <article class="stat"><b>3 SDGs</b><em>11 · 3 · 13</em><span>Sustainable Cities, Good Health, Climate Action</span></article>
         </div>
       </div>
     </section>
@@ -163,17 +156,16 @@
         <div class="split">
           <article class="panel problem">
             <p class="eyebrow">Research problem</p>
-            <q>Avoiding inconvenience to people due to irregular waste.</q>
-            <p>The project treats irregular public-bin waste as a combined sensing problem: organic waste, animals at the bin, fill level, litter outside the bin, and weather. The risk level is produced by explicit rules so a dashboard can show why an alert was raised.</p>
+            <q>Existing smart bins only measure how full they are.</q>
+            <p>They cannot detect scattered waste, odours, or pedestrians avoiding a street. Irregular collection erodes civic confidence, pollutes waterways, wastes fuel on inefficient routes, and lets organic waste breed dengue-carrying mosquitoes.</p>
           </article>
           <article class="panel">
-            <p class="eyebrow">Scope on record</p>
+            <p class="eyebrow">Impact areas</p>
             <ul class="meta-list">
-              <li><strong>Waste</strong> Organic or non-organic, MobileNetV2.</li>
-              <li><strong>Animals</strong> Cat, crow, dog, and monkey, YOLOv8.</li>
-              <li><strong>Fill</strong> Empty, half, or overflow, YOLOv8n.</li>
-              <li><strong>Litter</strong> Outside-bin litter severity index, YOLO11.</li>
-              <li><strong>Action</strong> Frame-level littering-event detector, YOLO11.</li>
+              <li><strong>Social</strong> Lower civic confidence and quality of life.</li>
+              <li><strong>Environmental</strong> Spillage contaminates waterways and breaches the National Environmental Act.</li>
+              <li><strong>Economic</strong> Wasted fuel and lost foot traffic for local businesses.</li>
+              <li><strong>Public health</strong> Organic waste breeds dengue-carrying mosquitoes.</li>
             </ul>
           </article>
         </div>
@@ -185,16 +177,34 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Method</p>
-            <h2>From image to action</h2>
+            <h2>From sensing to action</h2>
           </div>
-          <p><a href="domain.html#methodology">Read the full methodology</a></p>
+          <p><a href="domain.html#solution">Read the proposed solution</a></p>
         </div>
         <ol class="steps">
-          <li><b>01</b><strong>Capture</strong><span>A JPEG arrives from the ESP32-CAM, the phone app, or an admin upload.</span></li>
-          <li><b>02</b><strong>Infer</strong><span>The Express gateway calls separate model services. It does not run the models itself.</span></li>
-          <li><b>03</b><strong>Decide</strong><span>Waste type, animals, and weather feed a documented rule table.</span></li>
-          <li><b>04</b><strong>Respond</strong><span>Captures, alerts, optional audio, maps, and collection stops.</span></li>
+          <li><b>01</b><strong>Sense</strong><span>A PIR sensor triggers image capture. DHT22 and MQ-135 sensors read temperature, humidity, and gas.</span></li>
+          <li><b>02</b><strong>Classify at the edge</strong><span>Lightweight TFLite and MobileNet models run on a Raspberry Pi or Jetson Nano.</span></li>
+          <li><b>03</b><strong>Fuse and score</strong><span>Waste type, weather, and time give a hygienic risk score, alongside fill level and litter severity.</span></li>
+          <li><b>04</b><strong>Forecast and act</strong><span>Event-aware forecasts raise advance alerts, and a graduated deterrent runs only at high risk.</span></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Components</p>
+            <h2>Four components, one system</h2>
+          </div>
+          <p>Each team member owns one novelty. Together they cover the bin interior, its surroundings, and the schedule around it.</p>
+        </div>
+        <div class="team-grid">
+          <a class="card card-link" href="domain.html#objectives"><p class="role">Member 1 · IT22194312</p><h3>Hygienic risk and deterrent</h3><p>Vision-based hygienic risk assessment and species-aware animal deterrent.</p><span>Read the component</span></a>
+          <a class="card card-link" href="domain.html#objectives"><p class="role">Member 2 · IT22200006</p><h3>Fill level detection</h3><p>Motion-triggered camera-based fill level detection.</p><span>Read the component</span></a>
+          <a class="card card-link" href="domain.html#objectives"><p class="role">Member 3 · IT22296214</p><h3>Demand forecasting</h3><p>Event-aware waste demand forecasting.</p><span>Read the component</span></a>
+          <a class="card card-link" href="domain.html#objectives"><p class="role">Member 4 · IT22262318</p><h3>Litter severity detection</h3><p>Motion-triggered improper disposal and litter severity detection.</p><span>Read the component</span></a>
+        </div>
       </div>
     </section>
 
@@ -207,12 +217,12 @@
           </div>
         </div>
         <div class="card-grid">
-          <a class="card card-link" href="domain.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 5.5A2.5 2.5 0 017.5 4H20v15H7.5A2.5 2.5 0 015 16.5z"/></svg></span><h3>Domain</h3><p>Literature, research gap, objectives, methodology, and technologies.</p><span>Open domain</span></a>
-          <a class="card card-link" href="milestones.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Milestones</h3><p>Proposal, progress reviews, final assessment, and viva. Dates and marks are not recorded yet.</p><span>Open milestones</span></a>
-          <a class="card card-link" href="documents.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></span><h3>Documents</h3><p>The system overview is available. Charter, proposal, and final files are still to be added.</p><span>Open documents</span></a>
-          <a class="card card-link" href="slides.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Presentation slides</h3><p>Slots for the proposal, both progress reviews, and the final presentation.</p><span>Open slides</span></a>
-          <a class="card card-link" href="about.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="9" cy="9" r="3"/><path d="M4 19c.7-3 2.6-4.5 5-4.5S13.3 16 14 19"/><circle cx="17" cy="10" r="2"/></svg></span><h3>About us</h3><p>Names recorded in the repository, with student IDs only where they are documented.</p><span>Meet the team</span></a>
-          <a class="card card-link" href="contact.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span><h3>Contact us</h3><p>Team email addresses. This site does not send mail on its own.</p><span>Contact</span></a>
+          <a class="card card-link" href="domain.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 017.5 4H20v15H7.5A2.5 2.5 0 015 16.5z"/></svg></span><h3>Domain</h3><p>Problem, existing research, proposed solution, objectives, and references.</p><span>Open domain</span></a>
+          <a class="card card-link" href="about.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M4 19c.7-3 2.6-4.5 5-4.5S13.3 16 14 19"/><circle cx="17" cy="10" r="2"/></svg></span><h3>Team</h3><p>The four researchers, their student IDs, and the component each one builds.</p><span>Meet the team</span></a>
+          <a class="card card-link" href="milestones.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Milestones</h3><p>Proposal, progress reviews, final assessment, and viva.</p><span>Open milestones</span></a>
+          <a class="card card-link" href="documents.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></span><h3>Documents</h3><p>Charter, proposal, reports, and the system overview.</p><span>Open documents</span></a>
+          <a class="card card-link" href="slides.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Slides</h3><p>Slots for the proposal, both progress reviews, and the final presentation.</p><span>Open slides</span></a>
+          <a class="card card-link" href="contact.html"><span class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span><h3>Contact</h3><p>Team email addresses. This site does not send mail on its own.</p><span>Contact the team</span></a>
         </div>
       </div>
     </section>
@@ -232,34 +242,34 @@
           <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
         </a>
-        <p>Vision-based hygienic risk prediction and animal deterrence. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
+        <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
       </div>
       <nav aria-label="Footer">
-        <p class="footer-label">Sections</p>
+        <p class="footer-label">Explore</p>
         <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="about.html">Team</a></li>
           <li><a href="domain.html">Domain</a></li>
           <li><a href="milestones.html">Milestones</a></li>
-          <li><a href="documents.html">Documents</a></li>
-          <li><a href="slides.html">Slides</a></li>
         </ul>
       </nav>
       <div>
-        <p class="footer-label">Project</p>
+        <p class="footer-label">Resources</p>
         <ul>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="slides.html">Slides</a></li>
           <li><a href="search.html">Search</a></li>
           <li><a href="documents/visionwaste-system-overview.pdf">System overview</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-label">Contact</p>
-        <p>No shared project phone number or inbox is recorded. Use a team address on the contact page.</p>
+        <p>No shared project inbox is recorded. Email a team member directly.</p>
         <p><a href="contact.html">Go to contact</a></p>
       </div>
     </div>
     <div class="container footer-base">
-      <p>R26-IT-084 · VisionWaste</p>
+      <p>R26-IT-084 · VisionWaste · Final year research 2026</p>
       <p>Sri Lanka Institute of Information Technology</p>
     </div>
   </footer>
