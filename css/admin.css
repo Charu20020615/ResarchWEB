@@ -111,3 +111,17 @@
   .a-top { padding: 0 16px; }
   .a-status { display: none; }
 }
+
+.a-form input[type="file"]::file-selector-button {
+  font: inherit; font-weight: 700; font-size: 0.86rem; margin-right: 12px; padding: 8px 16px; cursor: pointer;
+  background: var(--forest); color: var(--lime); border: 0; border-radius: 999px; transition: background 160ms ease;
+}
+.a-form input[type="file"]::file-selector-button:hover { background: var(--deep); }
+.a-form select { appearance: none; padding-right: 38px; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+.a-form .btn { min-height: 44px; }
+@media (max-width: 560px) {
+  .a-main { padding: 24px 16px 72px; }
+  .a-item summary { padding: 10px 12px; gap: 10px; }
+  .a-brand span { font-size: 1rem; }
+  .a-top__links a { padding: 8px 10px; }
+}

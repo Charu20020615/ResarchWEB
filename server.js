@@ -599,14 +599,21 @@ function serveStatic(req, res, filePath) {
     }
     const ext = path.extname(filePath).toLowerCase();
     const gzip = compressible.has(ext) && /gzip/.test(req.headers["accept-encoding"] || "");
+    const revalidate = ext === ".html" || ext === ".css" || ext === ".js";
     const headers = Object.assign(
       {
         "Content-Type": types[ext] || "application/octet-stream",
-        "Cache-Control": ext === ".html" ? "no-cache" : "public, max-age=3600",
+        "Cache-Control": revalidate ? "no-cache" : "public, max-age=3600",
+        "Last-Modified": stat.mtime.toUTCString(),
         Vary: "Accept-Encoding"
       },
       securityHeaders
     );
+    const since = Date.parse(req.headers["if-modified-since"] || "");
+    if (revalidate && since && Math.floor(stat.mtimeMs / 1000) * 1000 <= since) {
+      res.writeHead(304, headers);
+      return res.end();
+    }
     if (gzip) headers["Content-Encoding"] = "gzip";
     else headers["Content-Length"] = stat.size;
     res.writeHead(200, headers);
