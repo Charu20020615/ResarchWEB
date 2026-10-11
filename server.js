@@ -1,6 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
+const zlib = require("zlib");
 
 const root = path.resolve(__dirname);
 const port = Number(process.env.PORT) || 3000;
@@ -55,13 +56,27 @@ function isHidden(filePath) {
   return hidden.has(path.basename(filePath).toLowerCase());
 }
 
-function send(res, status, type, body) {
-  res.writeHead(status, {
-    "Content-Type": type,
-    "X-Content-Type-Options": "nosniff",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
+const compressible = new Set([".html", ".css", ".js", ".svg", ".json", ".txt"]);
+
+const securityHeaders = {
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "SAMEORIGIN",
+  "Referrer-Policy": "strict-origin-when-cross-origin"
+};
+
+const notFoundPath = path.join(root, "404.html");
+
+function sendNotFound(res, head) {
+  fs.readFile(notFoundPath, function (err, body) {
+    const fallback = "<!doctype html><title>Not found</title><p>Page not found.</p>";
+    const payload = err ? fallback : body;
+    res.writeHead(404, Object.assign({
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": Buffer.byteLength(payload),
+      "Cache-Control": "no-cache"
+    }, securityHeaders));
+    res.end(head ? undefined : payload);
   });
-  res.end(body);
 }
 
 const server = http.createServer(function (req, res) {
@@ -75,32 +90,41 @@ const server = http.createServer(function (req, res) {
   const lookup = requestPath === "/" ? "/index.html" : requestPath;
   const filePath = resolveFile(lookup);
 
+  const isHead = req.method === "HEAD";
+
   if (!filePath || isHidden(filePath)) {
-    send(res, 404, "text/html; charset=utf-8", "<!doctype html><title>Not found</title><p>Page not found.</p>");
+    sendNotFound(res, isHead);
     return;
   }
 
   fs.stat(filePath, function (err, stat) {
     if (err || !stat.isFile()) {
-      send(res, 404, "text/html; charset=utf-8", "<!doctype html><title>Not found</title><p>Page not found.</p>");
+      sendNotFound(res, isHead);
       return;
     }
 
     const ext = path.extname(filePath).toLowerCase();
-    res.writeHead(200, {
+    const gzip = compressible.has(ext) && /gzip/.test(req.headers["accept-encoding"] || "");
+    const headers = Object.assign({
       "Content-Type": types[ext] || "application/octet-stream",
-      "Content-Length": stat.size,
-      "X-Content-Type-Options": "nosniff",
-      "Referrer-Policy": "strict-origin-when-cross-origin",
-      "Cache-Control": ext === ".html" ? "no-cache" : "public, max-age=3600"
-    });
+      "Cache-Control": ext === ".html" ? "no-cache" : "public, max-age=3600",
+      "Vary": "Accept-Encoding"
+    }, securityHeaders);
 
-    if (req.method === "HEAD") {
+    if (gzip) headers["Content-Encoding"] = "gzip";
+    else headers["Content-Length"] = stat.size;
+
+    res.writeHead(200, headers);
+
+    if (isHead) {
       res.end();
       return;
     }
 
-    fs.createReadStream(filePath).pipe(res);
+    const stream = fs.createReadStream(filePath);
+    stream.on("error", function () { res.destroy(); });
+    if (gzip) stream.pipe(zlib.createGzip()).pipe(res);
+    else stream.pipe(res);
   });
 });
 
