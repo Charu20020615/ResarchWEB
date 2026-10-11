@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domain · VisionWaste</title>
+  <meta name="description" content="Literature, research gap, objectives, methodology, and technologies for VisionWaste, group R26-IT-084.">
+  <meta name="theme-color" content="#050B16">
+  <meta property="og:title" content="Domain · VisionWaste">
+  <meta property="og:description" content="Research domain for the VisionWaste public-bin monitoring project.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/background.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
+      </a>
+      <input class="nav-toggle" id="nav-toggle" type="checkbox">
+      <label class="nav-burger" for="nav-toggle"><span class="nav-burger__bars" aria-hidden="true"></span><span class="sr-only">Open menu</span></label>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="domain.html" aria-current="page">Domain</a></li>
+          <li class="has-menu">
+            <a href="milestones.html">Milestones</a>
+            <ul class="submenu">
+              <li><a href="milestones.html#proposal">Project Proposal</a></li>
+              <li><a href="milestones.html#progress-1">Progress Presentation 1</a></li>
+              <li><a href="milestones.html#progress-2">Progress Presentation 2</a></li>
+              <li><a href="milestones.html#final">Final Assessment</a></li>
+              <li><a href="milestones.html#viva">Viva</a></li>
+            </ul>
+          </li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="slides.html">Slides</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <a class="header-search" href="search.html" aria-label="Search this website">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-hero">
+      <div class="bg-scene" aria-hidden="true">
+        <div class="bg-base"></div>
+        <div class="bg-orbs"></div>
+        <canvas class="bg-net" data-net></canvas>
+        <div class="bg-shade"></div>
+      </div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Domain</li></ol></nav>
+        <p class="eyebrow">Research domain</p>
+        <h1>Public-bin vision, risk, and response</h1>
+        <p>This page follows the system overview dated 30 August 2026 and the reference list compiled for the bin-fill contribution. It does not add papers, results, or conclusions that are not in those materials.</p>
+      </div>
+    </header>
+
+    <section class="section section--tight">
+      <div class="container domain-layout">
+        <nav class="toc" aria-label="On this page">
+          <p class="footer-label">Contents</p>
+          <ol>
+            <li><a href="#literature">Literature survey</a></li>
+            <li><a href="#gap">Research gap</a></li>
+            <li><a href="#problem">Research problem</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#technologies">Technologies</a></li>
+            <li><a href="#references">References</a></li>
+          </ol>
+        </nav>
+
+        <div class="stack">
+          <section id="literature">
+            <h2>Literature survey</h2>
+            <p>The entries below are the related-work set written in the project reference file. Each note says only how that source is used in the project notes. Experimental claims from the papers themselves are not restated here.</p>
+            <article class="cite">
+              <h3>Object detection</h3>
+              <p>Redmon et al. introduced YOLO as a unified real-time detector [2]. Bochkovskiy et al. describe YOLOv4 [3]. The implementation uses Ultralytics YOLO, cited as Jocher, Chaurasia, and Qiu [1].</p>
+            </article>
+            <article class="cite">
+              <h3>Smart waste monitoring</h3>
+              <p>Hannan et al. review technologies used in solid-waste monitoring [4]. Anagnostopoulos et al. survey waste management in IoT-enabled smart cities [5]. Folianto, Low, and Yeow present Smartbin [6]. Wijaya, Zainuddin, and Niswar design a smart waste bin [7]. Abdullah, Alwesabi, and Abdullah describe an IoT smart-waste system [8]. Vo et al. study YOLO-based detection for recyclable separation and trash-bin capacity [9].</p>
+            </article>
+            <article class="cite">
+              <h3>Sensing, software, and data</h3>
+              <p>The edge node uses an ESP32-CAM [10]. The mobile client uses Flutter [11]. Model services use FastAPI [12]. The fill dataset is Garbage_Fill_Level v2 on Roboflow, attributed to C. Edirisinghe [13]. Image handling uses OpenCV [14].</p>
+            </article>
+            <p class="note"><strong>Not listed as cited documents.</strong> The reference file marks a Central Environmental Authority page and the UNEP Global Waste Management Outlook as optional local context, and it says to cite the specific PDF actually downloaded. No specific download is identified, so those two items are omitted.</p>
+          </section>
+
+          <section id="gap">
+            <h2>Research gap</h2>
+            <p>The project notes contrast ultrasonic-only smart bins [6], [7] with fill state estimated from imagery, in the spirit of vision-assisted recycling systems [9], but aimed at Empty, Half, and Overflow tiers for public bins. VisionWaste then joins that fill estimate with waste type, animal presence, outside-bin litter, and weather.</p>
+            <p>The same overview records limits that the work does not claim to have closed: the waste model is binary, so a mixed-waste critical case cannot be inferred from one image; the hygienic-risk forecast does not predict new animals or a cleaning crew; and litter weights were missing at the 30 August 2026 evaluation, so the litter severity index was skipped in that run.</p>
+          </section>
+
+          <section id="problem">
+            <h2>Research problem</h2>
+            <article class="panel problem">
+              <q>Avoiding inconvenience to people due to irregular waste.</q>
+              <p>That line is the repository title and the stated goal of the system overview. The implemented response is a readable hygienic-risk level, staff alerts and collection support, citizen nearest-bin lookup, and optional audio at the bin.</p>
+            </article>
+          </section>
+
+          <section id="objectives">
+            <h2>Research objectives</h2>
+            <p>These objectives are taken from the functions described in the technical overview. Replace them if the official proposal states different wording.</p>
+            <ol class="objectives">
+              <li><span>Classify waste in a captured image as organic or non-organic.</span></li>
+              <li><span>Detect cat, crow, dog, and monkey at the bin.</span></li>
+              <li><span>Estimate bin fill as Empty, Half, or Overflow.</span></li>
+              <li><span>Score litter outside the bin with a litter severity index from 0 to 100.</span></li>
+              <li><span>Detect a littering event in a frame, as a service separate from litter severity.</span></li>
+              <li><span>Combine waste type, animals, and weather into an explicit risk case and message.</span></li>
+              <li><span>Store the capture, raise alerts, and support maps, forecasts, and collection stops.</span></li>
+            </ol>
+          </section>
+
+          <section id="methodology">
+            <h2>Methodology</h2>
+            <p>Machine learning does not run inside the Express gateway. Each model is its own process. The browser and the phone talk only to the gateway. The gateway talks to the model services over HTTP.</p>
+            <ol class="steps">
+              <li><b>01</b><strong>Edge</strong><span>ESP32-CAM captures a JPEG. A PIR sensor and a DFPlayer are part of the documented edge node. A laptop bridge is required when the camera is only on a private network.</span></li>
+              <li><b>02</b><strong>Gateway</strong><span>POST /predict accepts a multipart image from an ESP32, a phone, or an admin upload. Weather uses request GPS, else the bin coordinates, else Colombo defaults 6.9271, 79.8612.</span></li>
+              <li><b>03</b><strong>Models</strong><span>Waste, animal, fill, litter severity, and littering action are separate services. Fill classes are Empty, Half, and Overflow.</span></li>
+              <li><b>04</b><strong>Risk and response</strong><span>Rules set the level. Postgres can store the capture and alerts. High and critical ESP32 results can queue DFPlayer tracks.</span></li>
+            </ol>
+
+            <h3>Hygienic risk rules</h3>
+            <p>The engine is rule-based. Thresholds recorded in the overview are 30°C and 70% humidity. Case 4, mixed waste plus animals, is not implemented.</p>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only">Documented hygienic risk cases</caption>
+                <thead><tr><th>Case</th><th>Condition</th><th>Level</th></tr></thead>
+                <tbody>
+                  <tr><td>Case 3</td><td>Organic waste and any animal</td><td>High</td></tr>
+                  <tr><td>Extra</td><td>Non-organic waste and any animal</td><td>High</td></tr>
+                  <tr><td>Case 2</td><td>Organic waste, high temperature and high humidity, no animals</td><td>Medium</td></tr>
+                  <tr><td>Case 1</td><td>Organic waste, no animals, normal weather</td><td>Low</td></tr>
+                  <tr><td>Extra</td><td>Non-organic waste, no animals</td><td>Low</td></tr>
+                  <tr><td>Case 4</td><td>Mixed waste and animals</td><td>Not implemented</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Litter severity index</h3>
+            <p>The documented fusion is about 0.5 times litter count, plus 0.32 times area, plus 0.18 times spread. Low is 30 or below, medium is 53 or below, and high is above that. An optional bin polygon drops detections whose centroid is inside the bin.</p>
+
+            <h3>Two different forecasts</h3>
+            <p>The hygienic-risk timeline replays the same rule engine on future weather slots. It assumes the waste type stays until the bin is cleaned, the animal count stays at the current value, and hours since cleaning grow linearly. It does not predict new animals.</p>
+            <p>A separate XGBoost pipeline forecasts municipal waste kilograms by location and category. That model is not the hygienic-risk timeline.</p>
+
+            <h3>Evaluation on record</h3>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only">Recorded model metrics and their scope</caption>
+                <thead><tr><th>Model</th><th>Metric</th><th>Scope</th></tr></thead>
+                <tbody>
+                  <tr><td>Waste MobileNetV2</td><td>97.58% accuracy</td><td>Test · 372 images · report of 30 Aug 2026</td></tr>
+                  <tr><td>Waste, organic</td><td>Precision 0.972 · recall 0.978 · F1 0.975</td><td>Same test split</td></tr>
+                  <tr><td>Waste, non-organic</td><td>Precision 0.979 · recall 0.974 · F1 0.977</td><td>Same test split</td></tr>
+                  <tr><td>Animal YOLOv8</td><td>mAP@0.5 0.881 · mAP@0.5:0.95 0.610 · precision 0.864 · recall 0.796</td><td>Test · report of 30 Aug 2026</td></tr>
+                  <tr><td>Bin fill YOLOv8n</td><td>Precision 0.840 · recall 0.781 · mAP@0.5 0.861 · mAP@0.5:0.95 0.611</td><td>Validation, epoch 32 · 23 images, 29 instances · verified 10 Oct 2026</td></tr>
+                  <tr><td>Risk rules</td><td>6 of 6 scenarios</td><td>Scripted checks, not a field trial</td></tr>
+                  <tr><td>Litter</td><td>Not scored</td><td>Weights missing in the 30 Aug 2026 run</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note"><strong>Fill checkpoint to cite.</strong> Use the epoch-32 validation numbers above. An earlier checkpoint in the 30 August report has mAP@0.5 of 0.592. The verification file records that a fresh held-out test evaluation was still pending. Fill inference time in the Colab report is 2.0 ms for the model only. End-to-end time from the ESP32 to a phone has not been measured.</p>
+          </section>
+
+          <section id="technologies">
+            <h2>Technologies used</h2>
+            <div class="tech-grid">
+              <article class="tech"><strong>ESP32-CAM</strong><span>OV2640 JPEG capture at the bin, with a laptop bridge for private-network access.</span></article>
+              <article class="tech"><strong>PIR and DFPlayer</strong><span>Motion input and speaker tracks. High maps to track 2 and critical to track 3, with a 60-second cooldown.</span></article>
+              <article class="tech"><strong>MobileNetV2</strong><span>TensorFlow waste classifier: organic or non-organic.</span></article>
+              <article class="tech"><strong>YOLOv8</strong><span>Animal detection and the YOLOv8n fill detector.</span></article>
+              <article class="tech"><strong>YOLO11</strong><span>Litter severity and a separate littering-event detector.</span></article>
+              <article class="tech"><strong>FastAPI and Flask</strong><span>Model microservices. The fill service has also been run as Flask.</span></article>
+              <article class="tech"><strong>Express.js</strong><span>API gateway, risk rules, alerts, and device commands. No model weights in the gateway.</span></article>
+              <article class="tech"><strong>React and Flutter</strong><span>Staff and public web UI, plus an Android app for nearest bins and staff routes.</span></article>
+              <article class="tech"><strong>PostgreSQL</strong><span>Users, devices, captures, predictions, and alerts. Inference still runs if the database is absent.</span></article>
+              <article class="tech"><strong>XGBoost</strong><span>Municipal waste-kilogram forecast, separate from the risk-rule timeline.</span></article>
+            </div>
+          </section>
+
+          <section id="references">
+            <h2>References</h2>
+            <p>IEEE-style entries copied from the project reference list. DOIs are included only where that file records them.</p>
+            <ol class="objectives">
+              <li><span>G. Jocher, A. Chaurasia, and J. Qiu, “YOLO by Ultralytics,” version 8.0.0, Jan. 10, 2023. [Online]. Available: https://github.com/ultralytics/ultralytics</span></li>
+              <li><span>J. Redmon, S. Divvala, R. Girshick, and A. Farhadi, “You Only Look Once: Unified, real-time object detection,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), 2016, pp. 779–788, doi: 10.1109/CVPR.2016.91.</span></li>
+              <li><span>A. Bochkovskiy, C.-Y. Wang, and H.-Y. M. Liao, “YOLOv4: Optimal speed and accuracy of object detection,” arXiv preprint arXiv:2004.10934, 2020.</span></li>
+              <li><span>M. A. Hannan et al., “A review on technologies and their usage in solid waste monitoring and management systems: Issues and challenges,” Waste Manage., vol. 43, pp. 509–523, 2015, doi: 10.1016/j.wasman.2015.05.033.</span></li>
+              <li><span>T. Anagnostopoulos et al., “Challenges and opportunities of waste management in IoT-enabled smart cities: A survey,” IEEE Trans. Sustain. Comput., vol. 2, no. 3, pp. 275–289, 2017, doi: 10.1109/TSUSC.2017.2692968.</span></li>
+              <li><span>F. Folianto, Y. S. Low, and W. L. Yeow, “Smartbin: Smart waste management system,” in Proc. IEEE Tenth Int. Conf. Intell. Sensors, Sensor Netw. Inf. Process. (ISSNIP), 2015, pp. 1–2, doi: 10.1109/ISSNIP.2015.7106974.</span></li>
+              <li><span>A. S. Wijaya, Z. Zainuddin, and M. Niswar, “Design a smart waste bin for smart waste management,” in Proc. 5th Int. Conf. Instrum., Control, Autom. (ICA), 2017, pp. 62–66, doi: 10.1109/ICA.2017.8068414.</span></li>
+              <li><span>N. Abdullah, O. A. Alwesabi, and R. Abdullah, “IoT-based smart waste management system in a smart city,” in Advances in Intelligent Systems and Computing, Springer, 2019, doi: 10.1007/978-3-319-99007-1_34.</span></li>
+              <li><span>A. H. Vo et al., “YOLO-based object detection for separate collection of recyclables and capacity monitoring of trash bins,” Electronics, vol. 11, no. 9, p. 1323, 2022, doi: 10.3390/electronics11091323.</span></li>
+              <li><span>Espressif Systems, “ESP32-CAM AI-Thinker,” hardware reference. [Online]. Available: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/</span></li>
+              <li><span>Flutter Team, “Flutter documentation,” Google. [Online]. Available: https://docs.flutter.dev/</span></li>
+              <li><span>FastAPI, “FastAPI framework documentation.” [Online]. Available: https://fastapi.tiangolo.com/</span></li>
+              <li><span>B. Dwyer, J. Nelson, and J. Solawetz et al., “Roboflow (Version 1.0),” 2022. [Online]. Available: https://roboflow.com. Dataset used: C. Edirisinghe, “Garbage_Fill_Level,” Roboflow Universe, v2.</span></li>
+              <li><span>G. Bradski, “The OpenCV Library,” Dr. Dobb’s J. Softw. Tools, 2000.</span></li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
+        </a>
+        <p>Vision-based hygienic risk prediction and animal deterrence. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer-label">Sections</p>
+        <ul>
+          <li><a href="domain.html">Domain</a></li>
+          <li><a href="milestones.html">Milestones</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="slides.html">Slides</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer-label">Project</p>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="documents/visionwaste-system-overview.pdf">System overview</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-label">Contact</p>
+        <p>No shared project phone number or inbox is recorded. Use a team address on the contact page.</p>
+        <p><a href="contact.html">Go to contact</a></p>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <p>R26-IT-084 · VisionWaste</p>
+      <p>Sri Lanka Institute of Information Technology</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/background.js"></script>
+</body>
+</html>
