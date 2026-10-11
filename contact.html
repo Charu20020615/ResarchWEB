@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -56,6 +56,7 @@
       <div class="container contact-layout">
         <article class="panel">
           <h2>Recorded addresses</h2>
+          <!-- CMS:contact-list -->
           <ul class="meta-list">
             <li><strong>Ranaweera K U I</strong> · IT22194312<br><a href="mailto:ranaweeraimashi880@gmail.com">ranaweeraimashi880@gmail.com</a></li>
             <li><strong>Edirisinghe E A</strong> · IT22200006<br><a href="mailto:charukasedirisinghe@gmail.com">charukasedirisinghe@gmail.com</a></li>
@@ -64,6 +65,7 @@
             <li><strong>Supervisor</strong><br>Not supplied yet</li>
             <li><strong>Phone</strong><br>Not recorded</li>
           </ul>
+          <!-- /CMS:contact-list -->
         </article>
 
         <form class="panel" id="contact-form" action="mailto:ranaweeraimashi880@gmail.com" method="post" enctype="text/plain">
@@ -83,11 +85,13 @@
             <div class="field">
               <label for="recipient">Recipient</label>
               <select id="recipient" name="recipient" required>
+                <!-- CMS:contact-options -->
                 <option value="">Select a team member</option>
                 <option value="ranaweeraimashi880@gmail.com">Ranaweera K U I</option>
                 <option value="charukasedirisinghe@gmail.com">Edirisinghe E A</option>
                 <option value="it22296214@my.sliit.lk">Herath H M A M</option>
                 <option value="janinethminaa2002@gmail.com">Ranasinghe M J N</option>
+                <!-- /CMS:contact-options -->
               </select>
             </div>
             <div class="field">

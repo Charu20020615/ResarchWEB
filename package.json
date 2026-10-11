@@ -2,11 +2,15 @@
   "name": "visionwaste",
   "version": "1.0.0",
   "private": true,
-  "description": "VisionWaste research website, served for Railway.",
+  "description": "VisionWaste research website with admin CMS for Railway.",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
   }
 }
