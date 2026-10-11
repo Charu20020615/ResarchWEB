@@ -5,25 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Documents · VisionWaste</title>
   <meta name="description" content="Document library for VisionWaste R26-IT-084. Only files that exist in this site can be opened.">
-  <meta name="theme-color" content="#050B16">
+  <meta name="theme-color" content="#f3efe6">
   <meta property="og:title" content="Documents · VisionWaste">
   <meta property="og:description" content="Project documents for VisionWaste, including the system overview.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/background.css">
-  <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="css/polish.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-bar">
       <a class="brand" href="index.html">
-        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
         <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
       </a>
       <input class="nav-toggle" id="nav-toggle" type="checkbox">
@@ -48,12 +44,6 @@
 
   <main id="main">
     <header class="page-hero">
-      <div class="bg-scene" aria-hidden="true">
-        <div class="bg-base"></div>
-        <div class="bg-orbs"></div>
-        <canvas class="bg-net" data-net></canvas>
-        <div class="bg-shade"></div>
-      </div>
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Documents</li></ol></nav>
         <p class="eyebrow">Library</p>
@@ -151,7 +141,7 @@
     <div class="container footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
           <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
         </a>
         <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
@@ -187,6 +177,5 @@
   </footer>
   <script src="js/main.js"></script>
   <script src="js/enhance.js"></script>
-  <script src="js/background.js"></script>
 </body>
 </html>

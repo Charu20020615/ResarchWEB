@@ -5,25 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VisionWaste · Overview</title>
   <meta name="description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
-  <meta name="theme-color" content="#050B16">
+  <meta name="theme-color" content="#f3efe6">
   <meta property="og:title" content="VisionWaste · Overview">
   <meta property="og:description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/background.css">
-  <link rel="stylesheet" href="css/site.css">
-  <link rel="stylesheet" href="css/polish.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-bar">
       <a class="brand" href="index.html">
-        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
         <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
       </a>
       <input class="nav-toggle" id="nav-toggle" type="checkbox">
@@ -48,82 +44,56 @@
 
   <main id="main">
     <section class="hero">
-      <div class="bg-scene" aria-hidden="true">
-        <div class="bg-base"></div>
-        <div class="bg-orbs"></div>
-        <div class="bg-motes"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <canvas class="bg-net" data-net></canvas>
-        <div class="bg-shade"></div>
-      </div>
-      <div class="container hero-grid">
-        <div>
-          <p class="badge"><i></i> Final year research · 2026 · R26-IT-084</p>
-          <p class="eyebrow">Group research project</p>
-          <h1>Vision<span>Waste</span></h1>
-          <p class="lede">Vision-based smart waste monitoring that sees what fill-level sensors miss.</p>
-          <p class="abstract">Irregular municipal waste collection inconveniences pedestrians, schoolchildren, healthcare workers, and local businesses. Existing smart bins only measure fill level. VisionWaste adds edge cameras, environmental sensing, and event-aware forecasting to assess hygiene risk, detect scattered litter, deter stray animals, and plan collections.</p>
-          <div class="actions">
-            <a class="btn btn--primary" href="domain.html">Explore the Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="btn btn--ghost" href="about.html">Meet the Team</a>
+      
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="badge"><i></i> R26-IT-084 · Final year research 2026 · SLIIT</p>
+            <h1>Public bins that see more than <em>how full</em> they are.</h1>
+            <p class="abstract">Irregular waste collection inconveniences pedestrians, schoolchildren, healthcare workers, and local businesses. Existing smart bins only measure fill level. VisionWaste adds edge cameras, environmental sensing, and event-aware forecasting to assess hygiene risk, detect scattered litter, deter stray animals, and plan collections.</p>
+            <div class="actions">
+              <a class="btn btn--primary" href="domain.html">Explore the project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="btn btn--ghost" href="about.html">Meet the team</a>
+            </div>
+            <ul class="hero-points">
+              <li><strong>Group</strong>R26-IT-084, SLIIT Faculty of Computing</li>
+              <li><strong>Goal</strong>Avoid inconvenience from irregular waste</li>
+              <li><strong>Edge devices</strong>Raspberry Pi or Jetson Nano</li>
+              <li><strong>Aligned with</strong>SDG 11, SDG 3, and SDG 13</li>
+            </ul>
           </div>
-          <ul class="hero-points">
-            <li><strong>Group</strong> R26-IT-084 · SLIIT Faculty of Computing</li>
-            <li><strong>Goal</strong> Avoid inconvenience from irregular waste</li>
-            <li><strong>Edge devices</strong> Raspberry Pi or Jetson Nano</li>
-            <li><strong>Aligned with</strong> SDG 11, SDG 3, and SDG 13</li>
-          </ul>
+          <figure class="hero-visual">
+            <svg class="scene" viewBox="0 0 440 390" role="img" aria-label="Line drawing of a public bin with a camera on a short mast, a speaker grille, and dashed litter zones on the ground around it.">
+              <ellipse class="zone" cx="220" cy="322" rx="200" ry="40"/>
+              <ellipse class="zone" cx="220" cy="322" rx="118" ry="24"/>
+              <text class="zt" x="346" y="330">0–1 m</text>
+              <text class="zt" x="352" y="366">1–3 m</text>
+              <path class="ln fill" d="M144 150h152l-14 168H158z"/>
+              <path class="ln fill" d="M132 128h176v22H132z"/>
+              <path class="ln" d="M220 128V82"/>
+              <rect class="ln fill" x="194" y="50" width="52" height="32" rx="3"/>
+              <circle class="ln" cx="211" cy="66" r="7"/>
+              <circle class="dot" cx="232" cy="59" r="2.6"/>
+              <path class="ln" d="M205 232l15-26 15 26z"/>
+              <path class="thin" d="M182 282h76M186 292h68M190 302h60"/>
+              <path class="thin" d="M246 66h40M298 205h50M182 292H92"/>
+              <g><circle class="mk" cx="298" cy="66" r="12"/><text class="mkt" x="298" y="66">1</text></g>
+              <g><circle class="mk" cx="360" cy="205" r="12"/><text class="mkt" x="360" y="205">2</text></g>
+              <g><circle class="mk" cx="80" cy="292" r="12"/><text class="mkt" x="80" y="292">3</text></g>
+            </svg>
+            <ol class="legend">
+              <li><div><strong>Motion-triggered camera</strong>A PIR sensor wakes capture to save power.</div></li>
+              <li><div><strong>Edge classification</strong>Lightweight models run on the device.</div></li>
+              <li><div><strong>Species-aware deterrent</strong>18–25 kHz, only when risk is high.</div></li>
+            </ol>
+          </figure>
         </div>
-        <figure class="hero-visual">
-          <svg class="scene" viewBox="160 40 300 460" role="img" aria-label="Public bin with a camera on a short mast and a recycling mark.">
-            <defs>
-              <linearGradient id="bin" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1a3148"/>
-                <stop offset="1" stop-color="#0c1828"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="330" cy="430" rx="150" ry="22" fill="rgba(34,211,238,0.08)"/>
-            <path d="M80 120h180M120 80h90M460 150h80" stroke="rgba(148,163,184,0.25)" stroke-dasharray="3 6"/>
-            <rect x="214" y="168" width="196" height="236" rx="28" fill="url(#bin)" stroke="rgba(148,163,184,0.35)"/>
-            <rect x="232" y="146" width="160" height="28" rx="10" fill="#163044" stroke="rgba(34,211,238,0.35)"/>
-            <rect x="286" y="78" width="88" height="14" rx="3" fill="#123047" stroke="#2dd4bf"/>
-            <rect x="318" y="92" width="24" height="54" rx="4" fill="#10283c" stroke="rgba(148,163,184,0.4)"/>
-            <rect x="302" y="58" width="56" height="28" rx="6" fill="#0e2236" stroke="#22d3ee"/>
-            <circle cx="322" cy="72" r="6" fill="#07111e" stroke="#22d3ee"/>
-            <circle cx="338" cy="72" r="3" fill="#22d3ee"/>
-            <g fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M312 268l16-28 16 10"/>
-              <path d="M328 240l16 10-6 16"/>
-              <path d="M338 266l-10 16-16-6"/>
-              <path d="M312 276l-6-16 16-4"/>
-            </g>
-            <circle cx="248" cy="196" r="4" fill="#2dd4bf"/>
-            <circle cx="376" cy="196" r="4" fill="#22d3ee"/>
-            <rect x="248" y="360" width="128" height="10" rx="5" fill="rgba(34,211,238,0.18)"/>
-          </svg>
-          <ul class="callouts">
-            <li class="callout"><strong>Motion-triggered camera</strong><span>A PIR sensor wakes capture to save power</span></li>
-            <li class="callout"><strong>Edge classification</strong><span>Lightweight models run on the device</span></li>
-            <li class="callout"><strong>Species-aware deterrent</strong><span>18–25 kHz, only when risk is high</span></li>
-          </ul>
-        </figure>
-      </div>
-      <div class="container feature-row">
-        <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div><strong>Hygienic risk and deterrent</strong><span>Organic content, heat, and time drive a risk score.</span></div>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 14h12M6 9h12"/></svg>
-          <div><strong>Fill level detection</strong><span>PIR-triggered capture replaces constant ultrasonic sensing.</span></div>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 15l4-5 3 3 4-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div><strong>Event-aware forecasting</strong><span>Poya days and school terms predict waste spikes.</span></div>
-        </article>
-        <article class="feature">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 20h18M6 20l2-8h8l2 8"/><path d="M10 8l2-4 2 4"/></svg>
-          <div><strong>Litter severity</strong><span>Clean, moderate, or severe litter around the bin.</span></div>
-        </article>
+        <div class="feature-row">
+        <article class="feature"><span class="num">01</span><strong>Hygienic risk and deterrent</strong><span>Organic content, heat, and time drive a risk score.</span></article>
+        <article class="feature"><span class="num">02</span><strong>Fill level detection</strong><span>PIR-triggered capture replaces constant ultrasonic sensing.</span></article>
+        <article class="feature"><span class="num">03</span><strong>Event-aware forecasting</strong><span>Poya days and school terms predict waste spikes.</span></article>
+        <article class="feature"><span class="num">04</span><strong>Litter severity</strong><span>Clean, moderate, or severe litter around the bin.</span></article>
+        </div>
       </div>
     </section>
 
@@ -227,19 +197,13 @@
       </div>
     </section>
 
-    <div class="skyline" aria-hidden="true">
-      <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
-        <path fill="#071525" d="M0 140V90h40l20-30h30v30h50l10-18h24v18h80l16-40h20v40h70l12-22h40v22h90l20-50h28v50h60l14-24h36v24h100l18-36h22v36h80l10-16h50v16h120l24-48h30v48h90l16-28h40v28h88V140z"/>
-        <path fill="#0c3a32" d="M0 140 V112 C80 96 120 128 200 116 C280 104 320 132 420 118 C520 104 560 132 680 116 C800 100 860 130 980 114 C1100 98 1160 128 1280 116 C1360 108 1400 124 1440 118 V140 Z"/>
-      </svg>
-    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <a class="brand" href="index.html">
-          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#10233a" stroke="rgba(148,163,184,0.35)"/><path d="M8 23c0-8 5.2-13 15-14-1 8-6.4 14-15 14z" fill="none" stroke="#2dd4bf" stroke-width="1.6"/><path d="M12 19.5c2.2-2.2 5-4 8-5.6" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
           <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
         </a>
         <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
@@ -275,6 +239,5 @@
   </footer>
   <script src="js/main.js"></script>
   <script src="js/enhance.js"></script>
-  <script src="js/background.js"></script>
 </body>
 </html>
