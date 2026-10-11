@@ -1,0 +1,127 @@
+/* Hero background
+   Technique adapted from the slow radial-gradient meshes and drifting
+   glow particles catalogued at
+   https://freefrontend.com/css-animated-backgrounds/
+   (gradient-mesh motion and CSS firefly-style motes).
+   The fine network is an original canvas layer in js/background.js.
+   Static gradients stay visible if JavaScript is off or motion is reduced.
+*/
+
+.bg-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-base,
+.bg-orbs,
+.bg-motes,
+.bg-net,
+.bg-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.bg-base {
+  background:
+    radial-gradient(900px 420px at 12% 20%, rgba(34, 211, 238, 0.14), transparent 60%),
+    radial-gradient(700px 380px at 88% 10%, rgba(45, 212, 191, 0.1), transparent 55%),
+    linear-gradient(180deg, rgba(5, 11, 22, 0.2), rgba(5, 11, 22, 0.72));
+}
+
+.bg-orbs::before,
+.bg-orbs::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.bg-orbs::before {
+  width: 420px;
+  height: 420px;
+  left: -80px;
+  top: -60px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.22), transparent 68%);
+  animation: orb-drift 28s ease-in-out infinite alternate;
+}
+
+.bg-orbs::after {
+  width: 360px;
+  height: 360px;
+  right: -40px;
+  bottom: -80px;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.16), transparent 70%);
+  animation: orb-drift 34s ease-in-out infinite alternate-reverse;
+}
+
+.bg-motes span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(186, 230, 253, 0.9);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.8);
+  opacity: 0.35;
+  animation: mote 18s ease-in-out infinite;
+}
+
+.bg-motes span:nth-child(1) { left: 12%; top: 30%; animation-duration: 19s; }
+.bg-motes span:nth-child(2) { left: 28%; top: 62%; animation-duration: 23s; animation-delay: -4s; }
+.bg-motes span:nth-child(3) { left: 46%; top: 22%; animation-duration: 21s; animation-delay: -8s; }
+.bg-motes span:nth-child(4) { left: 63%; top: 48%; animation-duration: 26s; animation-delay: -2s; }
+.bg-motes span:nth-child(5) { left: 74%; top: 18%; animation-duration: 17s; animation-delay: -11s; }
+.bg-motes span:nth-child(6) { left: 86%; top: 58%; animation-duration: 24s; animation-delay: -6s; }
+
+.bg-net {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bg-shade {
+  background:
+    linear-gradient(90deg, rgba(5, 11, 22, 0.88) 0%, rgba(5, 11, 22, 0.55) 42%, rgba(5, 11, 22, 0.25) 100%),
+    linear-gradient(180deg, rgba(5, 11, 22, 0.15), rgba(5, 11, 22, 0.78));
+}
+
+.page-hero .bg-shade {
+  background:
+    linear-gradient(180deg, rgba(5, 11, 22, 0.35), rgba(5, 11, 22, 0.82));
+}
+
+@keyframes orb-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(36px, 22px, 0); }
+}
+
+@keyframes mote {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+  50% { transform: translate3d(18px, -24px, 0); opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-orbs::before,
+  .bg-orbs::after,
+  .bg-motes span {
+    animation: none;
+  }
+
+  .bg-net {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .bg-orbs::before,
+  .bg-orbs::after {
+    opacity: 0.45;
+  }
+
+  .bg-motes {
+    display: none;
+  }
+}

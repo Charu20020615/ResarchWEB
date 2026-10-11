@@ -1,0 +1,12 @@
+{
+  "name": "visionwaste",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VisionWaste research website, served for Railway.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
