@@ -175,12 +175,19 @@ async function parseForm(req) {
   return multipart.parseRequest(req, MAX_UPLOAD);
 }
 
-function flashRedirect(res, message, kind) {
+const SECTION_OF = { people: "team", media: "media", gallery: "gallery", milestones: "milestones", documents: "documents", slides: "slides" };
+
+function backFor(pathname) {
+  const key = String(pathname || "").split("/")[2];
+  return "/admin/" + (SECTION_OF[key] || "");
+}
+
+function flashRedirect(res, message, kind, back) {
   const cookie =
     "vw_flash=" +
     encodeURIComponent(JSON.stringify({ message: message, kind: kind || "success" })) +
     "; Path=/admin; HttpOnly; SameSite=Lax; Max-Age=30";
-  redirect(res, "/admin", cookie);
+  redirect(res, back || "/admin", cookie);
 }
 
 function readFlash(req) {
@@ -248,76 +255,76 @@ async function handleAdmin(req, res, pathname) {
     return;
   }
 
-  if (pathname === "/admin" && method === "GET") {
+  const sectionMatch = pathname.match(/^\/admin\/(team|media|gallery|milestones|documents|slides)$/);
+  if ((pathname === "/admin" || sectionMatch) && method === "GET") {
     const content = await db.getAllContent();
     const flashInfo = readFlash(req);
+    const html = sectionMatch
+      ? adminUi.sectionPage(sectionMatch[1], content, flashInfo.flash)
+      : adminUi.overview(content, flashInfo.flash);
     send(
       res,
       200,
       "text/html; charset=utf-8",
-      adminUi.dashboard(content, flashInfo.flash),
+      html,
       flashInfo.clearCookie ? { "Set-Cookie": flashInfo.clearCookie } : null
     );
     return;
   }
 
+  const back = backFor(pathname);
   try {
     if (pathname === "/admin/people" && method === "POST") {
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.photo, IMAGE_EXT);
       await db.query(
         `INSERT INTO people (kind, name, student_id, role_label, email, component_title, description, photo_path, sort_order)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+         VALUES ($1,$2,$3,'',$4,$5,$6,$7,(SELECT COALESCE(MAX(sort_order),0)+1 FROM people))`,
         [
           form.fields.kind || "member",
           form.fields.name || "",
           form.fields.student_id || "",
-          form.fields.role_label || "",
           form.fields.email || "",
           form.fields.component_title || "",
           form.fields.description || "",
-          upload ? upload.stored : "",
-          Number(form.fields.sort_order) || 0
+          upload ? upload.stored : ""
         ]
       );
-      return flashRedirect(res, "Person added.");
+      return flashRedirect(res, "Person added.", "success", back);
     }
 
     const peopleMatch = pathname.match(/^\/admin\/people\/(\d+)(\/delete)?$/);
     if (peopleMatch && method === "POST") {
       const id = peopleMatch[1];
+      const existing = await db.query("SELECT photo_path FROM people WHERE id=$1", [id]);
       if (peopleMatch[2]) {
-        const existing = await db.query("SELECT photo_path FROM people WHERE id=$1", [id]);
         if (existing.rows[0]) await removeUpload(existing.rows[0].photo_path);
         await db.query("DELETE FROM people WHERE id=$1", [id]);
-        return flashRedirect(res, "Person deleted.");
+        return flashRedirect(res, "Person deleted.", "success", back);
       }
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.photo, IMAGE_EXT);
-      const existing = await db.query("SELECT photo_path FROM people WHERE id=$1", [id]);
       let photo = existing.rows[0] ? existing.rows[0].photo_path : "";
       if (upload) {
         await removeUpload(photo);
         photo = upload.stored;
       }
       await db.query(
-        `UPDATE people SET kind=$1, name=$2, student_id=$3, role_label=$4, email=$5,
-         component_title=$6, description=$7, photo_path=$8, sort_order=$9, updated_at=NOW()
-         WHERE id=$10`,
+        `UPDATE people SET kind=$1, name=$2, student_id=$3, email=$4,
+         component_title=$5, description=$6, photo_path=$7, updated_at=NOW()
+         WHERE id=$8`,
         [
           form.fields.kind || "member",
           form.fields.name || "",
           form.fields.student_id || "",
-          form.fields.role_label || "",
           form.fields.email || "",
           form.fields.component_title || "",
           form.fields.description || "",
           photo,
-          Number(form.fields.sort_order) || 0,
           id
         ]
       );
-      return flashRedirect(res, "Person saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
 
     const mediaMatch = pathname.match(/^\/admin\/media\/([a-z_]+)$/);
@@ -325,35 +332,23 @@ async function handleAdmin(req, res, pathname) {
       const slot = mediaMatch[1];
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.file, IMAGE_EXT);
-      const existing = await db.query("SELECT file_path FROM site_media WHERE slot=$1", [slot]);
+      const existing = await db.query("SELECT file_path, mime_type FROM site_media WHERE slot=$1", [slot]);
       let filePath = existing.rows[0] ? existing.rows[0].file_path : "";
-      let mime = "";
+      let mime = existing.rows[0] ? existing.rows[0].mime_type : "";
       if (upload) {
         await removeUpload(filePath);
         filePath = upload.stored;
         mime = upload.mime;
-      } else if (existing.rows[0]) {
-        const cur = await db.query("SELECT mime_type FROM site_media WHERE slot=$1", [slot]);
-        mime = cur.rows[0] ? cur.rows[0].mime_type : "";
       }
       await db.query(
         `INSERT INTO site_media (slot, title, caption, description, file_path, mime_type, updated_at)
-         VALUES ($1,$2,$3,$4,$5,$6,NOW())
+         VALUES ($1,$1,'',$2,$3,$4,NOW())
          ON CONFLICT (slot) DO UPDATE SET
-           title=EXCLUDED.title, caption=EXCLUDED.caption, description=EXCLUDED.description,
-           file_path=COALESCE(NULLIF(EXCLUDED.file_path,''), site_media.file_path),
-           mime_type=COALESCE(NULLIF(EXCLUDED.mime_type,''), site_media.mime_type),
-           updated_at=NOW()`,
-        [
-          slot,
-          form.fields.title || slot,
-          form.fields.caption || "",
-          form.fields.description || "",
-          filePath,
-          mime
-        ]
+           description=EXCLUDED.description, file_path=EXCLUDED.file_path,
+           mime_type=EXCLUDED.mime_type, updated_at=NOW()`,
+        [slot, form.fields.description || "", filePath, mime]
       );
-      return flashRedirect(res, "Media slot saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
 
     if (pathname === "/admin/gallery" && method === "POST") {
@@ -362,30 +357,23 @@ async function handleAdmin(req, res, pathname) {
       if (!upload) throw new Error("Choose a photo or video to upload.");
       await db.query(
         `INSERT INTO gallery_items (title, caption, file_path, mime_type, sort_order)
-         VALUES ($1,$2,$3,$4,$5)`,
-        [
-          form.fields.title || "",
-          form.fields.caption || "",
-          upload.stored,
-          upload.mime,
-          Number(form.fields.sort_order) || 0
-        ]
+         VALUES ($1,$2,$3,$4,(SELECT COALESCE(MAX(sort_order),0)+1 FROM gallery_items))`,
+        [form.fields.title || "", form.fields.caption || "", upload.stored, upload.mime]
       );
-      return flashRedirect(res, "Gallery item added.");
+      return flashRedirect(res, "Added to the gallery.", "success", back);
     }
 
     const galleryMatch = pathname.match(/^\/admin\/gallery\/(\d+)(\/delete)?$/);
     if (galleryMatch && method === "POST") {
       const id = galleryMatch[1];
+      const existing = await db.query("SELECT file_path, mime_type FROM gallery_items WHERE id=$1", [id]);
       if (galleryMatch[2]) {
-        const existing = await db.query("SELECT file_path FROM gallery_items WHERE id=$1", [id]);
         if (existing.rows[0]) await removeUpload(existing.rows[0].file_path);
         await db.query("DELETE FROM gallery_items WHERE id=$1", [id]);
-        return flashRedirect(res, "Gallery item deleted.");
+        return flashRedirect(res, "Deleted.", "success", back);
       }
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.file, new Set([...IMAGE_EXT, ...VIDEO_EXT]));
-      const existing = await db.query("SELECT file_path, mime_type FROM gallery_items WHERE id=$1", [id]);
       let filePath = existing.rows[0].file_path;
       let mime = existing.rows[0].mime_type;
       if (upload) {
@@ -394,17 +382,10 @@ async function handleAdmin(req, res, pathname) {
         mime = upload.mime;
       }
       await db.query(
-        `UPDATE gallery_items SET title=$1, caption=$2, file_path=$3, mime_type=$4, sort_order=$5 WHERE id=$6`,
-        [
-          form.fields.title || "",
-          form.fields.caption || "",
-          filePath,
-          mime,
-          Number(form.fields.sort_order) || 0,
-          id
-        ]
+        `UPDATE gallery_items SET title=$1, caption=$2, file_path=$3, mime_type=$4 WHERE id=$5`,
+        [form.fields.title || "", form.fields.caption || "", filePath, mime, id]
       );
-      return flashRedirect(res, "Gallery item saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
 
     const mileMatch = pathname.match(/^\/admin\/milestones\/(\d+)$/);
@@ -421,21 +402,19 @@ async function handleAdmin(req, res, pathname) {
         fileName = upload.name;
       }
       await db.query(
-        `UPDATE milestones SET title=$1, description=$2, event_date=$3, marks=$4, completion=$5,
-         status_label=$6, file_path=$7, file_name=$8, updated_at=NOW() WHERE id=$9`,
+        `UPDATE milestones SET description=$1, event_date=$2, marks=$3, status_label=$4,
+         file_path=$5, file_name=$6, updated_at=NOW() WHERE id=$7`,
         [
-          form.fields.title || "",
           form.fields.description || "",
           form.fields.event_date || "",
           form.fields.marks || "",
-          form.fields.completion || "",
           form.fields.status_label || "",
           filePath,
           fileName,
           id
         ]
       );
-      return flashRedirect(res, "Milestone saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
 
     if (pathname === "/admin/documents" && method === "POST") {
@@ -443,32 +422,30 @@ async function handleAdmin(req, res, pathname) {
       const upload = await saveUpload(form.files.file, DOC_EXT);
       await db.query(
         `INSERT INTO documents (category, title, description, event_date, file_path, file_name, sort_order)
-         VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+         VALUES ($1,$2,$3,$4,$5,$6,(SELECT COALESCE(MAX(sort_order),0)+1 FROM documents))`,
         [
           form.fields.category || "other",
           form.fields.title || "",
           form.fields.description || "",
           form.fields.event_date || "",
           upload ? upload.stored : "",
-          upload ? upload.name : "",
-          100
+          upload ? upload.name : ""
         ]
       );
-      return flashRedirect(res, "Document added.");
+      return flashRedirect(res, "Document added.", "success", back);
     }
 
     const docMatch = pathname.match(/^\/admin\/documents\/(\d+)(\/delete)?$/);
     if (docMatch && method === "POST") {
       const id = docMatch[1];
+      const existing = await db.query("SELECT file_path, file_name FROM documents WHERE id=$1", [id]);
       if (docMatch[2]) {
-        const existing = await db.query("SELECT file_path FROM documents WHERE id=$1", [id]);
         if (existing.rows[0]) await removeUpload(existing.rows[0].file_path);
         await db.query("DELETE FROM documents WHERE id=$1", [id]);
-        return flashRedirect(res, "Document deleted.");
+        return flashRedirect(res, "Deleted.", "success", back);
       }
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.file, DOC_EXT);
-      const existing = await db.query("SELECT file_path, file_name FROM documents WHERE id=$1", [id]);
       let filePath = existing.rows[0].file_path;
       let fileName = existing.rows[0].file_name;
       if (upload) {
@@ -489,7 +466,7 @@ async function handleAdmin(req, res, pathname) {
           id
         ]
       );
-      return flashRedirect(res, "Document saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
 
     if (pathname === "/admin/slides" && method === "POST") {
@@ -497,33 +474,30 @@ async function handleAdmin(req, res, pathname) {
       const upload = await saveUpload(form.files.file, DOC_EXT);
       await db.query(
         `INSERT INTO slides (slug, title, description, event_date, tag_label, file_path, file_name, sort_order)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
+         VALUES ('',$1,$2,$3,$4,$5,$6,(SELECT COALESCE(MAX(sort_order),0)+1 FROM slides))`,
         [
-          "",
           form.fields.title || "",
           form.fields.description || "",
           form.fields.event_date || "",
           form.fields.tag_label || "",
           upload ? upload.stored : "",
-          upload ? upload.name : "",
-          100
+          upload ? upload.name : ""
         ]
       );
-      return flashRedirect(res, "Slides added.");
+      return flashRedirect(res, "Slides added.", "success", back);
     }
 
     const slideMatch = pathname.match(/^\/admin\/slides\/(\d+)(\/delete)?$/);
     if (slideMatch && method === "POST") {
       const id = slideMatch[1];
+      const existing = await db.query("SELECT file_path, file_name FROM slides WHERE id=$1", [id]);
       if (slideMatch[2]) {
-        const existing = await db.query("SELECT file_path FROM slides WHERE id=$1", [id]);
         if (existing.rows[0]) await removeUpload(existing.rows[0].file_path);
         await db.query("DELETE FROM slides WHERE id=$1", [id]);
-        return flashRedirect(res, "Slides deleted.");
+        return flashRedirect(res, "Deleted.", "success", back);
       }
       const form = await parseForm(req);
       const upload = await saveUpload(form.files.file, DOC_EXT);
-      const existing = await db.query("SELECT file_path, file_name FROM slides WHERE id=$1", [id]);
       let filePath = existing.rows[0].file_path;
       let fileName = existing.rows[0].file_name;
       if (upload) {
@@ -544,11 +518,11 @@ async function handleAdmin(req, res, pathname) {
           id
         ]
       );
-      return flashRedirect(res, "Slides saved.");
+      return flashRedirect(res, "Saved.", "success", back);
     }
   } catch (error) {
     console.error(error);
-    return flashRedirect(res, error.message || "Save failed.", "error");
+    return flashRedirect(res, error.message || "Save failed.", "error", back);
   }
 
   sendNotFound(res, false);

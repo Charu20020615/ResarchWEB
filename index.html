@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VisionWaste · Overview</title>
   <meta name="description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
-  <meta name="theme-color" content="#f3efe6">
+  <meta name="theme-color" content="#f2f8ec">
   <meta property="og:title" content="VisionWaste · Overview">
   <meta property="og:description" content="VisionWaste (R26-IT-084) is a vision-based smart waste monitoring system for public bins in Sri Lanka: hygienic risk, fill level, litter severity, and event-aware forecasting.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-bar">
-      <a class="brand" href="index.html">
-        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
+      <a class="brand" href="index.html" aria-label="VisionWaste home">
+        <img class="brand__mark" src="assets/logo-mark.webp" alt="" width="49" height="40">
         <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
       </a>
       <input class="nav-toggle" id="nav-toggle" type="checkbox">
@@ -35,16 +35,13 @@
           <li class="nav-contact"><a href="contact.html">Contact us</a></li>
         </ul>
       </nav>
-      <a class="header-search" href="search.html" aria-label="Search this website">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg>
-      </a>
-      <a class="btn btn--primary header-cta" href="contact.html">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="header-search" href="search.html" aria-label="Search this website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4" stroke-linecap="round"/></svg></a>
+      <a class="btn btn--primary header-cta" href="contact.html">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </header>
 
   <main id="main">
     <section class="hero">
-      
       <div class="container">
         <div class="hero-grid">
           <div>
@@ -52,7 +49,7 @@
             <h1>Public bins that see more than <em>how full</em> they are.</h1>
             <p class="abstract">Irregular waste collection inconveniences pedestrians, schoolchildren, healthcare workers, and local businesses. Existing smart bins only measure fill level. VisionWaste adds edge cameras, environmental sensing, and event-aware forecasting to assess hygiene risk, detect scattered litter, deter stray animals, and plan collections.</p>
             <div class="actions">
-              <a class="btn btn--primary" href="domain.html">Explore the project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="btn btn--primary" href="domain.html">Explore the project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               <a class="btn btn--ghost" href="about.html">Meet the team</a>
             </div>
             <ul class="hero-points">
@@ -62,32 +59,29 @@
               <li><strong>Aligned with</strong>SDG 11, SDG 3, and SDG 13</li>
             </ul>
           </div>
-          <figure class="hero-visual">
-            <svg class="scene" viewBox="0 0 440 390" role="img" aria-label="Line drawing of a public bin with a camera on a short mast, a speaker grille, and dashed litter zones on the ground around it.">
-              <ellipse class="zone" cx="220" cy="322" rx="200" ry="40"/>
-              <ellipse class="zone" cx="220" cy="322" rx="118" ry="24"/>
-              <text class="zt" x="346" y="330">0–1 m</text>
-              <text class="zt" x="352" y="366">1–3 m</text>
-              <path class="ln fill" d="M144 150h152l-14 168H158z"/>
-              <path class="ln fill" d="M132 128h176v22H132z"/>
-              <path class="ln" d="M220 128V82"/>
-              <rect class="ln fill" x="194" y="50" width="52" height="32" rx="3"/>
-              <circle class="ln" cx="211" cy="66" r="7"/>
-              <circle class="dot" cx="232" cy="59" r="2.6"/>
-              <path class="ln" d="M205 232l15-26 15 26z"/>
-              <path class="thin" d="M182 282h76M186 292h68M190 302h60"/>
-              <path class="thin" d="M246 66h40M298 205h50M182 292H92"/>
-              <g><circle class="mk" cx="298" cy="66" r="12"/><text class="mkt" x="298" y="66">1</text></g>
-              <g><circle class="mk" cx="360" cy="205" r="12"/><text class="mkt" x="360" y="205">2</text></g>
-              <g><circle class="mk" cx="80" cy="292" r="12"/><text class="mkt" x="80" y="292">3</text></g>
-            </svg>
-            <ol class="legend">
-              <li><div><strong>Motion-triggered camera</strong>A PIR sensor wakes capture to save power.</div></li>
-              <li><div><strong>Edge classification</strong>Lightweight models run on the device.</div></li>
-              <li><div><strong>Species-aware deterrent</strong>18–25 kHz, only when risk is high.</div></li>
-            </ol>
-          </figure>
+          <div class="hero-art">
+            <svg class="hero-art__ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="none" stroke="#4aa312" stroke-opacity=".55" stroke-width="1" stroke-dasharray="1.5 6" stroke-linecap="round"/><circle cx="100" cy="2" r="3.2" fill="#4aa312"/></svg>
+            <svg class="hero-art__ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="none" stroke="#0b5c2b" stroke-opacity=".35" stroke-width="1"/><circle cx="198" cy="100" r="3" fill="#0b5c2b"/></svg>
+            <img class="hero-art__logo" src="assets/logo.webp" alt="VisionWaste logo: an eye whose pupil is a camera lens, with a recycling bin, a bag and a sprout. Smart vision. Cleaner tomorrow." width="1000" height="725" fetchpriority="high">
+            <span class="hero-art__scan" aria-hidden="true"></span>
+            <i class="corner corner--tl" aria-hidden="true"></i><i class="corner corner--tr" aria-hidden="true"></i><i class="corner corner--bl" aria-hidden="true"></i><i class="corner corner--br" aria-hidden="true"></i>
+            <span class="chip chip--a">PIR motion trigger</span>
+            <span class="chip chip--b">Edge AI · TFLite</span>
+            <span class="chip chip--c">18–25 kHz deterrent</span>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Hygienic risk scoring</span><span>Fill level detection</span><span>Litter severity index</span><span>Event-aware forecasting</span><span>Species-aware deterrent</span><span>Edge AI</span><span>Privacy by design</span><span>Poya-day demand</span>
+        <span>Hygienic risk scoring</span><span>Fill level detection</span><span>Litter severity index</span><span>Event-aware forecasting</span><span>Species-aware deterrent</span><span>Edge AI</span><span>Privacy by design</span><span>Poya-day demand</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
         <div class="feature-row">
         <article class="feature"><span class="num">01</span><strong>Hygienic risk and deterrent</strong><span>Organic content, heat, and time drive a risk score.</span></article>
         <article class="feature"><span class="num">02</span><strong>Fill level detection</strong><span>PIR-triggered capture replaces constant ultrasonic sensing.</span></article>
@@ -97,7 +91,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="band">
       <div class="container">
         <div class="section-head">
           <div>
@@ -107,10 +101,10 @@
           <p>Figures come from the project problem statement and component designs. They are not live dashboard statistics.</p>
         </div>
         <div class="stat-grid">
-          <article class="stat"><b>15–30%</b><em>Foot traffic lost</em><span>Nearby businesses affected by uncollected waste</span></article>
-          <article class="stat"><b>500+</b><em>Augmented images</em><span>Training set for fill level detection</span></article>
-          <article class="stat"><b>18–25 kHz</b><em>Deterrent band</em><span>Species-specific ultrasonic output</span></article>
-          <article class="stat"><b>3 SDGs</b><em>11 · 3 · 13</em><span>Sustainable Cities, Good Health, Climate Action</span></article>
+          <article class="stat"><b><span data-count="15">15</span>–<span data-count="30">30</span>%</b><em>Foot traffic lost</em><span>Nearby businesses affected by uncollected waste</span></article>
+          <article class="stat"><b><span data-count="500">500</span>+</b><em>Augmented images</em><span>Training set for fill level detection</span></article>
+          <article class="stat"><b><span data-count="18">18</span>–<span data-count="25">25</span> kHz</b><em>Deterrent band</em><span>Species-specific ultrasonic output</span></article>
+          <article class="stat"><b><span data-count="3">3</span> SDGs</b><em>11 · 3 · 13</em><span>Sustainable Cities, Good Health, Climate Action</span></article>
         </div>
       </div>
     </section>
@@ -203,41 +197,44 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="index.html">
-          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="m-bg" width="32" height="32" rx="7"/><path class="m-fg" d="M10 13h12M12 13l1 10h6l1-10M14 10h4" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle class="m-dot" cx="23.5" cy="8.5" r="2.4"/></svg>
-          <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
-        </a>
-        <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="VisionWaste home">
+        <img class="brand__mark" src="assets/logo-mark.webp" alt="" width="49" height="40">
+        <span class="brand__text"><span class="brand__name">Vision<span>Waste</span></span><span class="brand__meta">R26-IT-084</span></span>
+      </a>
+          <p>Vision-based smart waste monitoring and decision support for public bins. Faculty of Computing, Sri Lanka Institute of Information Technology.</p>
+        </div>
+        <nav aria-label="Footer">
+          <p class="footer-label">Explore</p>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="about.html">Team</a></li>
+            <li><a href="domain.html">Domain</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer-label">Resources</p>
+          <ul>
+            <li><a href="documents.html">Documents</a></li>
+            <li><a href="slides.html">Slides</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="documents/visionwaste-system-overview.pdf">System overview</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-label">Contact</p>
+          <p>No shared project inbox is recorded. Email a team member directly.</p>
+          <p><a href="contact.html">Go to contact</a></p>
+        </div>
       </div>
-      <nav aria-label="Footer">
-        <p class="footer-label">Explore</p>
-        <ul>
-          <li><a href="index.html">Overview</a></li>
-          <li><a href="about.html">Team</a></li>
-          <li><a href="domain.html">Domain</a></li>
-          <li><a href="milestones.html">Milestones</a></li>
-        </ul>
-      </nav>
-      <div>
-        <p class="footer-label">Resources</p>
-        <ul>
-          <li><a href="documents.html">Documents</a></li>
-          <li><a href="slides.html">Slides</a></li>
-          <li><a href="search.html">Search</a></li>
-          <li><a href="documents/visionwaste-system-overview.pdf">System overview</a></li>
-        </ul>
+      <p class="footer-tagline" aria-hidden="true">Smart vision.<br>Cleaner tomorrow.</p>
+      <div class="footer-base">
+        <p>R26-IT-084 · VisionWaste · Final year research 2026</p>
+        <p>Sri Lanka Institute of Information Technology</p>
       </div>
-      <div>
-        <p class="footer-label">Contact</p>
-        <p>No shared project inbox is recorded. Email a team member directly.</p>
-        <p><a href="contact.html">Go to contact</a></p>
-      </div>
-    </div>
-    <div class="container footer-base">
-      <p>R26-IT-084 · VisionWaste · Final year research 2026</p>
-      <p>Sri Lanka Institute of Information Technology</p>
     </div>
   </footer>
   <script src="js/main.js"></script>
