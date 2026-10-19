@@ -66,7 +66,7 @@
 
   /* Scroll reveal with a short stagger inside each group */
   if (!reduce) {
-    var selector = ".section-head, .stat, .card, .steps li, .panel, .doc, .slide, .milestone, .person, .feature, .table-wrap, .note, .cite, .gallery-item, .search-list li, .toolbar, .contact-layout > *";
+    var selector = ".section-head, .stat, .card, .steps li, .panel, .doc, .slide, .milestone, .person, .feature, .table-wrap, .note, .cite, .gallery-item, .search-list li, .toolbar, .contact-layout > *, .doc-group__title";
     var reveal = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;

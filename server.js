@@ -11,6 +11,7 @@ const auth = require("./lib/auth");
 const multipart = require("./lib/multipart");
 const render = require("./lib/render");
 const adminUi = require("./lib/admin");
+const docTypes = require("./lib/doc-types");
 
 const root = path.resolve(__dirname);
 const port = Number(process.env.PORT) || 3000;
@@ -37,6 +38,9 @@ const types = {
   ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   ".doc": "application/msword",
   ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ".xls": "application/vnd.ms-excel",
+  ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  ".csv": "text/csv; charset=utf-8",
   ".woff": "font/woff",
   ".woff2": "font/woff2"
 };
@@ -51,7 +55,7 @@ const hidden = new Set([
 
 const IMAGE_EXT = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg"]);
 const VIDEO_EXT = new Set([".mp4", ".webm"]);
-const DOC_EXT = new Set([".pdf", ".doc", ".docx", ".ppt", ".pptx", ...IMAGE_EXT]);
+const DOC_EXT = new Set([...docTypes.DOC_FILE_EXT, ...IMAGE_EXT]);
 const MAX_UPLOAD = 50 * 1024 * 1024;
 
 const compressible = new Set([".html", ".css", ".js", ".svg", ".json", ".txt"]);
@@ -424,7 +428,7 @@ async function handleAdmin(req, res, pathname) {
         `INSERT INTO documents (category, title, description, event_date, file_path, file_name, sort_order)
          VALUES ($1,$2,$3,$4,$5,$6,(SELECT COALESCE(MAX(sort_order),0)+1 FROM documents))`,
         [
-          form.fields.category || "other",
+          docTypes.normalizeDocCategory(form.fields.category),
           form.fields.title || "",
           form.fields.description || "",
           form.fields.event_date || "",
@@ -457,7 +461,7 @@ async function handleAdmin(req, res, pathname) {
         `UPDATE documents SET category=$1, title=$2, description=$3, event_date=$4,
          file_path=$5, file_name=$6, updated_at=NOW() WHERE id=$7`,
         [
-          form.fields.category || "other",
+          docTypes.normalizeDocCategory(form.fields.category),
           form.fields.title || "",
           form.fields.description || "",
           form.fields.event_date || "",
