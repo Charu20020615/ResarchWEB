@@ -52,6 +52,14 @@
         card.hidden = !show;
         if (show) visible += 1;
       });
+      document.querySelectorAll("[data-doc-group]").forEach(function (group) {
+        var groupKey = group.getAttribute("data-doc-group");
+        var any = false;
+        group.querySelectorAll("[data-doc]").forEach(function (card) {
+          if (!card.hidden) any = true;
+        });
+        group.hidden = !((category === "all" || category === groupKey) && any);
+      });
       if (docEmpty) docEmpty.hidden = visible !== 0;
     }
     docSearch.addEventListener("input", applyDocs);
